@@ -33,7 +33,7 @@ public class spawner : MonoBehaviour {
     {
         GameObject enemyprefab = Instantiate(enemy);
         enemyprefab.transform.position = thistransform.position;
-        enemyprefab.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1);
+       
 
         timer = 0;
     }
