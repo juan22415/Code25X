@@ -29,6 +29,6 @@ public class enemyshootV : MonoBehaviour {
         GameObject bullet = Instantiate(enemybullet);
         bullet.transform.position = GetComponent<Transform>().position + new Vector3(0, -0.3f, 0);
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0.5f * direction, -2f);
-        timer = 0.5f;
+        timer = 1;
     }
 }

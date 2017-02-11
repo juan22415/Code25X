@@ -8,27 +8,14 @@ public class spawner : MonoBehaviour {
     public Transform thistransform;
     public float timer;
 
-    // Use this for initialization
-    void Start () {
 
+
+    void OnEnable()
+    {
         thistransform = GetComponent<Transform>();
+        spawn();
 
-
-       
     }
-	
-	// Update is called once per frame
-	void Update () {
-
-        timer += Time.deltaTime;
-
-        if (timer>3)
-
-        {
-            spawn();
-        }
-    }
-
     void spawn ()
     {
         GameObject enemyprefab = Instantiate(enemy);
