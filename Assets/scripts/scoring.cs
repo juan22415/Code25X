@@ -7,7 +7,7 @@ public class scoring : MonoBehaviour
 { 
 
     public Text scoreui;
-    public static int score;
+    public static float score;
 
 	// Use this for initialization
 	void Start () {

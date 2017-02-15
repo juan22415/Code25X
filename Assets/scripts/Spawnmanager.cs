@@ -9,19 +9,45 @@ public class Spawnmanager : MonoBehaviour {
     public GameObject[] spawners;
     private float timer;
     private int current;
+    [SerializeField]
+    private float maxtime;
+    private float currentscore;
 
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    private void Start()
+    {
+
+        maxtime = 5;
+        currentscore = scoring.score;
+    }
+
+
+    // Update is called once per frame
+    void Update () {
+
+
+        if (currentscore!=scoring.score)
+        {
+            maxtime -= 0.1f;
+            //maxtime = maxtime - scoring.score / 1000;
+            currentscore = scoring.score;
+
+        }
         timer += Time.deltaTime;
+        
+        
 
-        if (timer > 3)
+
+
+        if (timer > maxtime)
 
         {
             current = Random.Range(0, spawners.Length);
             
             Enabler(current);
 
+            
         }
 
 
