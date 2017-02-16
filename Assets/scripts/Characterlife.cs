@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class Characterlife : MonoBehaviour {
 
@@ -11,6 +11,8 @@ public class Characterlife : MonoBehaviour {
     [SerializeField]
     private GameObject shield;
     public GameObject particle;
+    public GameObject panel;
+
     
 
     // Use this for initialization
@@ -26,7 +28,11 @@ public class Characterlife : MonoBehaviour {
             GameObject particles = Instantiate(particle);
             particles.transform.position = GetComponent<Transform>().position;
             Destroy(gameObject);
-            SceneManager.LoadScene(0);
+
+            panel.SetActive(true);
+
+            Time.timeScale = 0;
+            //SceneManager.LoadScene(0);
 
         }
 
