@@ -11,7 +11,7 @@ public class Spawnmanager : MonoBehaviour {
     private int current;
     [SerializeField]
     private float maxtime;
-    private float currentscore;
+    private float scorecheck;
 
 
 
@@ -19,7 +19,7 @@ public class Spawnmanager : MonoBehaviour {
     {
 
         maxtime = 5;
-        currentscore = scoring.score;
+        scorecheck = scoring.score;
     }
 
 
@@ -27,11 +27,11 @@ public class Spawnmanager : MonoBehaviour {
     void Update () {
 
 
-        if (currentscore!=scoring.score)
+        if (scoring.score- scorecheck >=500)
         {
-            maxtime -= 0.1f;
+            maxtime -= 0.2f;
             //maxtime = maxtime - scoring.score / 1000;
-            currentscore = scoring.score;
+            scorecheck = scoring.score;
 
         }
         timer += Time.deltaTime;

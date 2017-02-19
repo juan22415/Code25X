@@ -7,6 +7,7 @@ public class enemy_2 : MonoBehaviour
 
     private int liefepoints = 2;
     public GameObject particle;
+    public bool isred;
 
 
     // Use this for initialization
@@ -31,10 +32,17 @@ public class enemy_2 : MonoBehaviour
     void OnCollisionEnter2D(Collision2D coll)
     {
 
-        if (coll.gameObject.tag == "bullet")
+        if (coll.gameObject.tag == "bulletR" || coll.gameObject.tag == "bulletB")
         {
+            if (coll.gameObject.tag == "bulletR" && isred == true)
+            {
+                liefepoints -= 1;
+            }
+            if (coll.gameObject.tag == "bulletB" && isred == false)
+            {
+                liefepoints -= 1;
+            }
             Destroy(coll.gameObject);
-            liefepoints -= 1;
 
         }
         else if (coll.gameObject.tag == "wall")

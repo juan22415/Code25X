@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class scoring : MonoBehaviour
 { 
@@ -9,8 +10,15 @@ public class scoring : MonoBehaviour
     public Text scoreui;
     public static float score;
 
-	// Use this for initialization
-	void Start () {
+
+    public void nextscene()
+    {
+        SceneManager.LoadScene(0);
+        score = 0;
+        Time.timeScale = 1;
+    }
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

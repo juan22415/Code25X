@@ -1,19 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 using UnityEngine.UI;
 
 public class Characterlife : MonoBehaviour {
 
     [SerializeField]
-    private int charlife=3;
+    private int charlife=3,currentlife=0;
     [SerializeField]
     private GameObject shield;
-    public GameObject particle;
-    public GameObject panel;
+    [SerializeField]
+    private GameObject particle;
+    [SerializeField]
+    private GameObject panel;
+    [SerializeField]
+    private Scrollbar scrollbar;
+    [SerializeField]
+    private Text loserscore;
 
-    
+    public Image[] lifes;
+
+
+
 
     // Use this for initialization
     void Start () {
@@ -28,11 +37,16 @@ public class Characterlife : MonoBehaviour {
             GameObject particles = Instantiate(particle);
             particles.transform.position = GetComponent<Transform>().position;
             Destroy(gameObject);
+            scrollbar.gameObject.SetActive(false);
 
             panel.SetActive(true);
 
+            loserscore.text = "Score: " + scoring.score;
+
             Time.timeScale = 0;
-            //SceneManager.LoadScene(0);
+
+
+            
 
         }
 
@@ -45,8 +59,10 @@ public class Characterlife : MonoBehaviour {
     {
         if (coll.gameObject.tag=="enemybullet")
         {
+            lifes[currentlife].enabled = false;
             charlife -= 1;
             Respawn();
+            currentlife++;
 
         }
     }
@@ -57,4 +73,6 @@ public class Characterlife : MonoBehaviour {
         shield.SetActive(true);
         gameObject.transform.position = (new Vector3(0, -3.79f, 0));
     }
+
+ 
 }

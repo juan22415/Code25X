@@ -23,7 +23,7 @@ public class acelemove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.Translate(Input.acceleration.x*speed, Input.acceleration.y * speed, 0);
+        transform.Translate(Input.acceleration.x*speed, 0 , 0);
 
 
         GetComponent<Rigidbody2D>().position = new Vector3
