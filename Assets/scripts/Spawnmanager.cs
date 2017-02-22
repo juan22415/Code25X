@@ -26,8 +26,7 @@ public class Spawnmanager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-
-        if (scoring.score- scorecheck >=500)
+         if (scoring.score- scorecheck >=500)
         {
             maxtime -= 0.2f;
             //maxtime = maxtime - scoring.score / 1000;
@@ -36,23 +35,22 @@ public class Spawnmanager : MonoBehaviour {
         }
         timer += Time.deltaTime;
         
-        
-
-
-
         if (timer > maxtime)
 
         {
             current = Random.Range(0, spawners.Length);
             
             Enabler(current);
+          }
 
-            
+        if (scoring.score>4500)
+        {
+
+            gameObject.SetActive(false);
         }
 
 
-
-        }
+}
 
         void Enabler (int pos)
     {
