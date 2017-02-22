@@ -24,7 +24,6 @@ public class Bossshoot : MonoBehaviour {
         if (timer < 0)
         {
             int i = Random.Range(0, 3);
-            Debug.Log(i);
             shooting(i);
 
         }

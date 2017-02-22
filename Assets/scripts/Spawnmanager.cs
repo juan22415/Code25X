@@ -12,6 +12,8 @@ public class Spawnmanager : MonoBehaviour {
     [SerializeField]
     private float maxtime;
     private float scorecheck;
+    [SerializeField]
+    private GameObject Boss;
 
 
 
@@ -45,7 +47,7 @@ public class Spawnmanager : MonoBehaviour {
 
         if (scoring.score>4500)
         {
-
+            Boss.SetActive(true);
             gameObject.SetActive(false);
         }
 

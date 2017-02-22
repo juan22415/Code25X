@@ -13,6 +13,11 @@ public class Bosslife : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(lifepoints<1)
+        {
+            Destroy(gameObject);
+        }
 		
 	}
 
