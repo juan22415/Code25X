@@ -17,6 +17,13 @@ public class scoring : MonoBehaviour
         score = 0;
         Time.timeScale = 1;
     }
+
+    public void restart()
+    {
+        SceneManager.LoadScene(2);
+        score = 0;
+        
+    }
     // Use this for initialization
     void Start () {
 		

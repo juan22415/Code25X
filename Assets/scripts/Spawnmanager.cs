@@ -45,7 +45,7 @@ public class Spawnmanager : MonoBehaviour {
             Enabler(current);
           }
 
-        if (scoring.score>4500)
+        if (scoring.score>2000)
         {
             Boss.SetActive(true);
             gameObject.SetActive(false);

@@ -9,6 +9,7 @@ public class bulletcontroler : MonoBehaviour {
     public Transform thistransform;
     public Scrollbar scrollbar;
     private float timer=0.5f;
+    private bool isred = true;
 
     // Use this for initialization
     void Start () {
@@ -24,14 +25,25 @@ public class bulletcontroler : MonoBehaviour {
             shooting();
         }
 
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            if(isred)
+            {
+                isred = false;
+            }
+
+            else if (!isred)
+            {
+                isred = true;
+            }
+        }
         
     }
 
 
     void shooting()
     {
-        if (scrollbar.value >0.5f)
+        if (!isred)
         {
             GameObject bullet = Instantiate(bulletprefabB);
             bullet.transform.position = thistransform.position+new Vector3(0,0.3f,0);
@@ -40,7 +52,7 @@ public class bulletcontroler : MonoBehaviour {
 
         }
 
-        else if (scrollbar.value <0.5f)
+        else if (isred)
         {
             GameObject bullet = Instantiate(bulletprefabR);
             bullet.transform.position = thistransform.position + new Vector3(0, 0.3f, 0);

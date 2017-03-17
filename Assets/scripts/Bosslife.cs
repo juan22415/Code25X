@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bosslife : MonoBehaviour {
     [SerializeField]
     private int lifepoints=50;
+    public GameObject panelvictory;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class Bosslife : MonoBehaviour {
 
         if(lifepoints<1)
         {
+            panelvictory.SetActive(true);
             Destroy(gameObject);
         }
 		
